@@ -69,17 +69,13 @@ public class Service {
 	public void find(String n) {
 		String name = n.toUpperCase();
 		System.out.println("Searching for: " + name);
-		if (!playerMap.containsKey(name)) {
-			throw new IllegalArgumentException("Player " + name
-					+ " not in map.");
-		}
-		String op1 = "=" + name;
+		String op1 = name + "/";
 		String op2 = "/" + name;
 		String op3 = "+" + name;
 		for (Player p : playerMap.values()) {
 			String story = p.getStory();
-			if (story.contains(op1) || story.contains(op2)
-					|| story.contains(op3))
+			if (story.equals(name) || story.contains(op1)
+					|| story.contains(op2) || story.contains(op3))
 				System.out.println(p);
 		}
 	}
