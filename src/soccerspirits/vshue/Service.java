@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Service {
 
@@ -17,8 +18,15 @@ public class Service {
 	public static void main(String[] args) {
 		Service service = new Service();
 		service.loadFile();
-		service.find("yumi");
-		service.get("yumi");
+
+		try (Scanner scanner = new Scanner(System.in)) {
+			String input = scanner.nextLine();
+			while (input != null && input != "") {
+				service.find(input);
+				service.get(input);
+				input = scanner.nextLine();
+			}
+		}
 	}
 
 	public Service() {
@@ -65,8 +73,13 @@ public class Service {
 			throw new IllegalArgumentException("Player " + name
 					+ " not in map.");
 		}
+		String op1 = "=" + name;
+		String op2 = "/" + name;
+		String op3 = "+" + name;
 		for (Player p : playerMap.values()) {
-			if (p.getStory().contains(name))
+			String story = p.getStory();
+			if (story.contains(op1) || story.contains(op2)
+					|| story.contains(op3))
 				System.out.println(p);
 		}
 	}
