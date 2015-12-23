@@ -1,9 +1,8 @@
 package soccerspirits.vshue;
 
-
 public class Player {
 
-	public final static int NUM_FIELDS = 5;
+	public final static int NUM_FIELDS = 6;
 
 	public enum Element {
 		FIRE, WIND, THUNDER, LIGHT, DARK
@@ -105,5 +104,11 @@ public class Player {
 
 	public String getStory() {
 		return story;
+	}
+
+	public String toString() {
+		return "Player {name=" + name + ", isHas=" + isHas + ", stars=" + stars
+				+ ", element=" + getElement() + ", isEvent=" + isEvent
+				+ ", story=" + story + "}";
 	}
 }
