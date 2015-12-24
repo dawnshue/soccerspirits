@@ -69,13 +69,10 @@ public class Service {
 	public void find(String n) {
 		String name = n.toUpperCase();
 		System.out.println("Searching for: " + name);
-		String op1 = name + "/";
-		String op2 = "/" + name;
-		String op3 = "+" + name;
+		String regex = "[A-Z]*[/+]"+name+"[/+]";
 		for (Player p : playerMap.values()) {
 			String story = p.getStory();
-			if (story.equals(name) || story.contains(op1)
-					|| story.contains(op2) || story.contains(op3))
+			if (story.contains(name))
 				System.out.println(p);
 		}
 	}
