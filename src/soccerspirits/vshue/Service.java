@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Service {
 
-	public final String PLAYER_FILENAME = "/Users/Vangie/_Main/Programming/soccerspirits/players.csv";
+	public final String PLAYER_FILENAME = "/Users/Vangie/Desktop/Main/School/Programming/soccerspirits/players.csv";
 	public final String CSV_DELIMITER = ",";
 	private final boolean DEBUG_MODE = true;
 	private Map<String, Player> playerMap;
